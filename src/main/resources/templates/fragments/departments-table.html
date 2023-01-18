@@ -13,15 +13,30 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="dep : ${department}">
-        <td th:each="${dep.id}"></td>
-        <td th:each="${dep.code}"></td>
-        <td th:each="${dep.country}"></td>
-        <td th:each="${dep.name}"></td>
-        <td><a th:href="@{'/department/departments/delete?id=' + ${dep.id}}" class="btn btn-outline-danger">Delete</a></td>
+    <tr th:each="dep : ${departments}">
+        <td th:text="${dep.id}"></td>
+        <td th:text="${dep.code}"></td>
+        <td th:text="${dep.name}"></td>
+        <td th:text="${dep.country}"></td>
+
+        <td><a th:href="@{'/department/department/delete?id=' + ${dep.id}}"
+               class="btn btn-outline-danger">Delete</a></td>
     </tr>
     </tbody>
 </table>
 
 </body>
 </html>
+
+
+
+
+
+<!--
+<tr th:each="dep : ${departments}">
+    <td th:each="${dep.id}"></td>
+    <td th:each="${dep.code}"></td>
+    <td th:each="${dep.country}"></td>
+    <td th:each="${dep.name}"></td>
+    <td><a th:href="@{'/department/departments/delete?id=' + ${dep.id}}" class="btn btn-outline-danger">Delete</a></td>
+</tr>-->

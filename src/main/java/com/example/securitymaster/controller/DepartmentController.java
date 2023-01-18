@@ -34,7 +34,7 @@ public class DepartmentController {
     @DepartmentsCreate
     @GetMapping("/department-form")
     public String departmentsForm(Model model){
-        model.addAttribute("departments", new Department());
+        model.addAttribute("department", new Department());
         return "department-form";
     }
 
