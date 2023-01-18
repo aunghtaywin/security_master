@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+    <div class="container mt-5 p-5 bg-light">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Department Form</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <form th:action="@{/department/department-form}" th:object="${departments}" method="post">
+
+                            <div class="form-group">
+                                <label for="code">Code</label>
+                                <input type="text"  th:field="*{code}" id="code"
+                                       placeholder="Enter Code..." class="form-control"
+                                       th:classappend="${#fields.hasErrors('code')} ? 'is-invalid'">
+                                <small th:if="${#fields.hasErrors('code')}" th:errors="*{code}" class="invalid-feedback"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text"  th:field="*{name}" id="name"
+                                       placeholder="Enter Name..." class="form-control"
+                                       th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'">
+                                <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-feedback"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input type="text"  th:field="*{country}" id="country"
+                                       placeholder="Enter Country..." class="form-control"
+                                       th:classappend="${#fields.hasErrors('country')} ? 'is-invalid'">
+                                <small th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="invalid-feedback"></small>
+                            </div>
+
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Save" >
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
